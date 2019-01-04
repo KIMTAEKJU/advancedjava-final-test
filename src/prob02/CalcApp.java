@@ -13,5 +13,61 @@ public class CalcApp {
 		String operation = scanner.next();
 		
 		/* operation에 따라 4칙 연산 객체를 생성하고 caculate 메서드를 호출합니다. */
+		
+		switch(operation)
+		{
+			case "+":
+				System.out.println(new Add().calculate(a, b));
+				break;
+			
+			case "-":
+				System.out.println(new Sub().calculate(a, b));
+				break;
+				
+			case "*":
+				System.out.println(new Mul().calculate(a, b));
+				break;
+				
+			case "/":
+				System.out.println(new Div().calculate(a, b));
+				break;
+				
+		}
+	}
+}
+
+class Add implements Arithmetic
+{
+	@Override
+	public int calculate(int a, int b) {
+		// TODO Auto-generated method stub
+		return a + b;
+	}
+}
+
+class Sub implements Arithmetic
+{
+	@Override
+	public int calculate(int a, int b) {
+		// TODO Auto-generated method stub
+		return a - b;
+	}
+}
+
+class Mul implements Arithmetic
+{
+	@Override
+	public int calculate(int a, int b) {
+		// TODO Auto-generated method stub
+		return a * b;
+	}
+}
+
+class Div implements Arithmetic
+{
+	@Override
+	public int calculate(int a, int b) {
+		// TODO Auto-generated method stub
+		return a / b;
 	}
 }

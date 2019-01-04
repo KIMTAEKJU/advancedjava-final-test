@@ -27,10 +27,10 @@ public class LoginMain {
 			System.out.println("로그인 성공");
 		} catch (UserNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e);
 		} catch (PasswordDismatchException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e);
 		}
 
 	}

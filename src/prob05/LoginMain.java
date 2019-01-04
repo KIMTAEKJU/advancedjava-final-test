@@ -22,19 +22,28 @@ public class LoginMain {
 		/*
 		 *  로그인 처리 부분을 완성 합니다.
 		 */
-		
+		try {
+			login(joinUsers, new User(id, password));
+			System.out.println("로그인 성공");
+		} catch (UserNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PasswordDismatchException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	
 	public static void login(List<User> users, User user ) throws UserNotFoundException, PasswordDismatchException {
 		if( !users.contains(user) ){
-			throw new UserNotFoundException();
+			throw new UserNotFoundException("존재하지 않는 사용자입니다.");
 		}
 		
-		User savedUser = users.get( users.indexOf( user ) );
+			User savedUser = users.get( users.indexOf( user ) );
 		
 		if( !savedUser.getPassword().equals( user.getPassword()) ){
-			throw new PasswordDismatchException();
+			throw new PasswordDismatchException("비밀번호가 틀렸습니다.");
 		}
 	}
 }
